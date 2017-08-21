@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Question</title>
+    <link rel="stylesheet" href="../../build/style.min.css" />
+</head>
+<body onload="verificationUserLogin()">
+    <!--Header-->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="../../assets/img/logo.png" alt="StackOverflow">
+            </div>
+            <div class="userInfo">
+                <div class="user">
+                    <p class="userName hide"><span class="userNameItem">Hello, </span><span class="logOut"> [Logout] </span></p>
+                </div>
+            </div>
+            <p class="login">LogIn</p>
+        </div>
+    </header>
+    <div class="container main-content clearfix">
+        <div class="nav">
+            <p><a href="../../" class="backBtn">&larr; Back</a></p>
+        </div>
+        <section class="left">
+            <div class="item-question clearfix" id="item" data-id={{_id}}>
+                <div class="item-question" >
+                    <div class="question-body">
+                        <p class="title">{{title}}</p>
+                        <p class="description">{{description}}</p>
+                    </div>
+                    <div class="author">
+                        <div class="author-img">
+                            <img src="../../../assets/img/user.png" class="img" alt="">
+                        </div>
+                        <p class="author-name">{{user}}</p>
+                    </div>
+                </div>
+                <h2 class="answer-title">{{answers.length}} answers</h2>
+                <div class="answers right clearfix" id="answers">
+                    {{#each answers}}
+                        <div class="item-answer clearfix right">
+                            <div class="answer-body right">
+                                <p class="description">{{ansDescription}}</p>
+                            </div>
+                            <div class="author right">
+                                <div class="author-img">
+                                    <img src="../../../assets/img/user.png" class="img" alt="">
+                                </div>
+                                <p class="author-name">{{ansUser}}</p>
+                            </div>
+                        </div>
+                    {{/each}}
+                </div>
+                <div class="form-answer">
+                    <h2 class="answer-title">Add new answer</h2>
+                    <form action="" name="newAnswer" class="newAnswer right hide">
+                        <textarea name="newAnswerBody" id="newAnswerBody" placeholder="Please, enter your answer here" required></textarea>
+                        <button class="btn">Answer</button>
+                    </form>
+                </div>
+                <div class="beforeLogin">
+                    <p class="info">Please login, before give new answer</p>
+                    <button class="btn login">LogIn</button>
+                </div>
+            </div>
+        </section>
+        <form class="formLogin hide right">
+            <input name="userName" id="userName" placeholder="Username"/>
+            <input type="password" name="userPassword" id="userPassword" placeholder="Password"/>
+            <p class="valid hide">Please, enter your data</p>
+            <button class="btn">LogIn</button>
+        </form>
+    </div>
+    <footer>
+        <div class="container">
+            <p class="copyright">&copy; Copyright</p>
+        </div>
+    </footer>
+    <script src="../../build/scripts.min.js"></script>
+</body>
+</html>

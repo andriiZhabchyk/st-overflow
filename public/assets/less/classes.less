@@ -1,0 +1,54 @@
+* {
+  transition: all .5s;
+}
+
+.hide {
+  display: none;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.img {
+  width: 25px;
+  height: 25px;
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.btn {
+  .mainFont(16px);
+  color: white;
+  background-color: orange;
+  border: none;
+  width: 100px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.title {
+    .mainFont(18px);
+    color: cornflowerblue;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+/*Mixin*/
+.mainFont(@font-size: 14px) {
+  font-family: "Arial";
+  font-weight: normal;
+  font-size: @font-size;
+}

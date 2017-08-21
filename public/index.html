@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stack Overflow v2.0</title>
+    <link rel="stylesheet" href="build/style.min.css" />
+</head>
+<body onload="getData()">
+    <!--Header-->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="assets/img/logo.png" alt="StackOverflow">
+            </div>
+            <div class="userInfo">
+                <div class="user">
+                    <p class="userName hide"><span class="userNameItem">Hello, </span><span class="logOut"> [Logout] </span></p>
+                </div>
+            </div>
+            <p class="login">LogIn</p>
+        </div>
+    </header>
+    <!--Main content-->
+    <div class="container main-content clearfix">
+        <div class="nav">
+            <ul class="answers-tab">
+                <li class="active all">All</li>
+                <li class="unanswered">Unanswered</li>
+                <li class="answered">Answered</li>
+            </ul>
+        </div>
+        <div class="questions left" id="questions"></div>
+        <form class="formLogin hide">
+            <input name="userName" id="userName" placeholder="Username"/>
+            <input type="password" name="userLogin" id="userPassword" placeholder="Password"/>
+            <p class="valid hide">Please, enter your data</p>
+            <button class="btn">LogIn</button>
+        </form>
+        <form class="newQuestion hide" name="new">
+            <input type="text" class="" placeholder="Question title" id="questionTitle" required>
+            <textarea placeholder="Enter your question here" required id="questionBody"></textarea>
+            <p class="validQuest hide">Please, enter your data</p>
+            <button class="btn">Ask</button>
+        </form>
+    </div>
+    <footer>
+        <div class="container">
+            <p class="copyright">&copy; Copyright</p>
+        </div>
+    </footer>
+    <script type="text/x-handlebars-template" id="questionTemplate">
+        {{#each question}}
+            <div class="item-question">
+                <div class="question-info">
+                    <div class="answersView">
+                        <div class="answers-wrap">
+                            <p>{{answers.length}}</p>
+                            <p><small>answers</small></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="question-body">
+                    <p><a href="/api/questions/{{_id}}">{{title}}</a></p>
+                    <p class="description">{{description}}</p>
+                </div>
+                <div class="author">
+                    <div class="author-img">
+                        <img src="assets/img/user.png" class="img" alt="">
+                    </div>
+                    <p class="author-name">{{user}}</p>
+                </div>
+            </div>
+        {{/each}}
+    </script>
+    <script src="build/scripts.min.js"></script>
+</body>
+</html>
